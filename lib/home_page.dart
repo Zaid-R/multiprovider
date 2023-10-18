@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_version_of_multiprovider/models.dart';
 import 'package:my_version_of_multiprovider/show_widget.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
