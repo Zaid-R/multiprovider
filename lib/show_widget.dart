@@ -12,19 +12,16 @@ class ShowWidget extends StatelessWidget {
     required this.color,
     required this.isSeconds,
   }) : super(key: key);
-  var provider;
+  //var provider;
   @override
   Widget build(BuildContext context) {
-    if(isSeconds){
-      provider = context.watch<Seconds>();
-    }else{
-      provider = context.watch<Minutes>();
-    }
+    
+    final  provider = context.watch<String>();
     return Container(
       color: color,
       height: 100,
       alignment: Alignment.center,
-      child: Text(provider.lastUpdate),
+      child: Text(provider),
     );
   }
 }

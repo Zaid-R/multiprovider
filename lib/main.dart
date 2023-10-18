@@ -15,17 +15,17 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           StreamProvider(
-              create:(_)=> Stream<Seconds>.periodic(
+              create:(_)=> Stream<String>.periodic(
                 const Duration(seconds: 1),
-                (_) => Seconds(),
+                (_) => now(),
               ),
-              initialData: Seconds()),
+              initialData: now()),
           StreamProvider(
-              create:(_)=> Stream<Minutes>.periodic(
+              create:(_)=> Stream<String>.periodic(
                 const Duration(seconds: 10),
-                (_) => Minutes(),
+                (_) => now(),
               ),
-              initialData: Minutes()),
+              initialData: now()),
         ],
         child:MaterialApp(
         theme: ThemeData(
@@ -36,3 +36,5 @@ class MyApp extends StatelessWidget {
     ),);
   }
 }
+
+String now()=> DateTime.now().toIso8601String();
