@@ -11,14 +11,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: MultiProvider(
         providers: [
-          StreamProvider.value(
-              value: Stream<Seconds>.periodic(
+          StreamProvider(
+              create:(_)=> Stream<Seconds>.periodic(
                 const Duration(seconds: 1),
                 (_) => Seconds(),
               ),
               initialData: Seconds()),
-          StreamProvider.value(
-              value: Stream<Minutes>.periodic(
+          StreamProvider(
+              create:(_)=> Stream<Minutes>.periodic(
                 const Duration(seconds: 10),
                 (_) => Minutes(),
               ),
@@ -27,10 +27,7 @@ class HomePage extends StatelessWidget {
         child: Row(
           children: [
             ShowWidget(color: Colors.yellow, isSeconds: true),
-            ShowWidget(
-              color: Colors.blue,
-              isSeconds: false,
-            ),
+            ShowWidget(color: Colors.blue, isSeconds: false),
           ].map((e) => Expanded(child: e)).toList(),
         ),
       ),
