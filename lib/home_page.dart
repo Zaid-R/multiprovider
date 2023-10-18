@@ -9,28 +9,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: MultiProvider(
-        providers: [
-          StreamProvider(
-              create:(_)=> Stream<Seconds>.periodic(
-                const Duration(seconds: 1),
-                (_) => Seconds(),
-              ),
-              initialData: Seconds()),
-          StreamProvider(
-              create:(_)=> Stream<Minutes>.periodic(
-                const Duration(seconds: 10),
-                (_) => Minutes(),
-              ),
-              initialData: Minutes()),
-        ],
-        child: Row(
+      body:  Row(
           children: [
             ShowWidget(color: Colors.yellow, isSeconds: true),
             ShowWidget(color: Colors.blue, isSeconds: false),
           ].map((e) => Expanded(child: e)).toList(),
         ),
-      ),
     );
   }
 }
